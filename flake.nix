@@ -18,6 +18,7 @@
     devShells = forAllSystems (system: {
       default = pkgsFor.${system}.callPackage ./shell.nix {};
     });
+ homeManagerModules.default = import ./module.nix self;
     nixosModules = {
       matugen = import ./module.nix self;
       default = self.nixosModules.matugen;
